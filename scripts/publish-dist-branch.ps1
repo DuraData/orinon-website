@@ -44,7 +44,10 @@ try {
     Remove-Item -Path $snapshotRoot -Recurse -Force
   }
   New-Item -ItemType Directory -Path $snapshotRoot | Out-Null
-  Copy-Item -Path $distPath -Destination (Join-Path $snapshotRoot "dist") -Recurse -Force
+  Copy-Item -Path (Join-Path $distPath "*") -Destination $snapshotRoot -Recurse -Force
+  if (Test-Path (Join-Path $distPath ".htaccess")) {
+    Copy-Item -Path (Join-Path $distPath ".htaccess") -Destination (Join-Path $snapshotRoot ".htaccess") -Force
+  }
 
   if (Test-Path $worktreePath) {
     Write-Host "[dist-branch] Cleaning stale temporary worktree..."
@@ -65,9 +68,12 @@ try {
     Invoke-Git -Args @("rm", "-rf", "--cached", ".") -AllowFailure
     Invoke-Git -Args @("clean", "-fdx")
 
-    Copy-Item -Path (Join-Path $snapshotRoot "dist") -Destination (Join-Path $worktreePath "dist") -Recurse -Force
+    Copy-Item -Path (Join-Path $snapshotRoot "*") -Destination $worktreePath -Recurse -Force
+    if (Test-Path (Join-Path $snapshotRoot ".htaccess")) {
+      Copy-Item -Path (Join-Path $snapshotRoot ".htaccess") -Destination (Join-Path $worktreePath ".htaccess") -Force
+    }
 
-    Invoke-Git -Args @("add", "-f", "dist")
+    Invoke-Git -Args @("add", "-A", ".")
 
     & git diff --cached --quiet
     $hasChanges = $LASTEXITCODE -ne 0
