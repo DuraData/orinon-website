@@ -17,10 +17,12 @@ const footerGroups = [
   {
     title: 'Services',
     links: [
-      { label: 'Cloud & Infrastructure', href: '/services' },
-      { label: 'Software Development', href: '/services' },
-      { label: 'Cybersecurity', href: '/services' },
-      { label: 'AI & Automation', href: '/services' },
+      { label: 'Advisory & Strategic Data Services', href: '/services' },
+      { label: 'Data Engineering', href: '/services' },
+      { label: 'Analytics & Visualisation', href: '/services' },
+      { label: 'Artificial Intelligence', href: '/services' },
+      { label: 'Managed Solutions', href: '/services' },
+      { label: 'Application Development', href: '/services' },
     ],
   },
   {
@@ -49,9 +51,14 @@ export function Footer() {
           <div className="max-w-sm">
             <Logo dark />
             <p className="mt-5 text-sm leading-7 text-indigo-100/70">
-              Technology services that help businesses scale with confidence. Software, cloud,
-              security, and managed IT delivered by senior engineers.
+              Orinon Info Tech helps organizations unlock value through modern data platforms,
+              analytics, artificial intelligence, business intelligence, digital transformation,
+              and application development.
             </p>
+            <div className="mt-4 space-y-1 text-sm text-indigo-100/70">
+              <p>www.orinon.co.zw</p>
+              <p>+263 716 547 778 | +263 772 492 229</p>
+            </div>
             <div className="mt-6 flex gap-3">
               {socials.map(({ label, icon: Icon, href }) => (
                 <a
@@ -87,7 +94,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-4 pt-6 text-sm text-indigo-100/55">
-          <p>© 2026 Orinon Technologies. All rights reserved.</p>
+          <p>© 2026 Orinon Info Tech. All rights reserved.</p>
           <div className="flex gap-6">
             <Link to="/contact" className="transition hover:text-white">
               Privacy Policy

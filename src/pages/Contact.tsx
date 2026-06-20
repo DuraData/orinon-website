@@ -30,27 +30,33 @@ const initialForm: FormState = {
 const contactCards = [
   {
     icon: LuPhone,
-    label: 'Phone',
-    value: '+1 (415) 555-0192',
-    sub: 'Mon-Fri, 9am-6pm PT',
+    label: 'Phone 1',
+    value: '+263 716 547 778',
+    sub: 'Orinon Info Tech contact line',
+  },
+  {
+    icon: LuPhone,
+    label: 'Phone 2',
+    value: '+263 772 492 229',
+    sub: 'Orinon Info Tech contact line',
   },
   {
     icon: LuMail,
-    label: 'Email',
-    value: 'hello@orinon.com',
-    sub: 'We reply within one business day',
+    label: 'Website',
+    value: 'www.orinon.co.zw',
+    sub: 'Official website',
   },
   {
     icon: LuMapPin,
-    label: 'Office',
-    value: '535 Mission St, Suite 1400',
-    sub: 'San Francisco, CA 94105',
+    label: 'Company',
+    value: 'Orinon Info Tech',
+    sub: 'Data, AI, and digital transformation specialist',
   },
   {
     icon: LuClock3,
-    label: 'Business Hours',
-    value: '9:00 AM - 6:00 PM PT',
-    sub: '24/7 support for managed clients',
+    label: 'Coverage',
+    value: 'Zimbabwe and Africa',
+    sub: 'Public and private sector delivery',
   },
 ];
 
@@ -60,8 +66,8 @@ export function Contact() {
   const [touched, setTouched] = useState(false);
 
   usePageMeta(
-    'Contact | Orinon',
-    'Contact Orinon to discuss cloud, software, security, data, AI, and managed IT engagements.',
+    'Contact | Orinon Info Tech',
+    'Contact Orinon Info Tech to discuss advisory, data engineering, analytics, AI, managed solutions, and application development services.',
   );
 
   const errors = useMemo(() => {
@@ -110,8 +116,8 @@ export function Contact() {
     <>
       <PageHero
         eyebrow="Get In Touch"
-        title="Let’s build something great"
-        description="Tell us about your project and a senior member of our team will reply within one business day."
+        title="Contact Orinon Info Tech"
+        description="Discuss your data, analytics, artificial intelligence, or application development requirements with our team."
       />
 
       <section className="bg-white py-20">
@@ -209,7 +215,7 @@ export function Contact() {
                           {service.title}
                         </option>
                       ))}
-                      <option value="Something else">Something else</option>
+                      <option value="General Enquiry">General Enquiry</option>
                     </select>
                     {touched && errors.service ? (
                       <span className="mt-2 block text-sm text-red-600">{errors.service}</span>
@@ -274,10 +280,10 @@ export function Contact() {
                   <LuMapPin className="text-5xl" />
                 </div>
                 <h2 className="mt-3 font-display text-xl font-bold text-ink">
-                  535 Mission St, San Francisco
+                  Orinon Info Tech | www.orinon.co.zw
                 </h2>
                 <p className="mt-2 font-display text-xs uppercase tracking-[0.22em] text-slate-400">
-                  Embedded map placeholder
+                  Zimbabwe and regional Africa coverage
                 </p>
               </div>
             </div>

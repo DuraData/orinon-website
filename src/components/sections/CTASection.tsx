@@ -10,18 +10,19 @@ export function CTASection() {
           <div className="absolute -right-10 -top-16 h-72 w-72 rounded-full bg-gold/20 blur-3xl" />
           <div className="relative mx-auto max-w-3xl">
             <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-5xl">
-              Ready to transform your business?
+              Unlock value with Orinon Info Tech
             </h2>
             <p className="mt-5 text-lg leading-8 text-indigo-100/80">
-              Let&apos;s talk about where you want to go and how Orinon can help you get there
-              with confidence.
+              We deliver end-to-end data, analytics, artificial intelligence, digital
+              transformation, and application development solutions for organizations across
+              Zimbabwe and Africa.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Button href="/contact" variant="gold">
-                Schedule a Consultation
-              </Button>
               <Button href="/services" variant="ghost">
-                View Services
+                Explore Our Services
+              </Button>
+              <Button href="/contact" variant="gold">
+                Contact Us
               </Button>
             </div>
           </div>

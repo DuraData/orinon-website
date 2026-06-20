@@ -11,144 +11,145 @@ import type { FaqItem, Service, Stat, TeamMember } from '../types';
 
 export const services: Service[] = [
   {
-    id: 'cloud',
-    title: 'Cloud & Infrastructure',
+    id: 'advisory',
+    title: 'Advisory & Strategic Data Services',
     description:
-      'Architect, migrate, and manage resilient cloud environments across AWS, Azure, and Google Cloud.',
+      'Orinon consultants help organizations assess data maturity, define strategy, and modernize platforms using cloud-based approaches and best-practice delivery models.',
     icon: LuBlocks,
     bullets: [
-      'Multi-cloud architecture and migration planning',
-      'FinOps governance and cost optimization',
-      '24/7 observability and reliability engineering',
+      'Data Strategy and Modernisation',
+      'Readiness Programme and Blueprint Architecture',
+      'Business Analysis and Project Management',
     ],
   },
   {
-    id: 'software',
-    title: 'Custom Software Development',
+    id: 'engineering',
+    title: 'Data Engineering',
     description:
-      'Web, mobile, and enterprise applications engineered for performance, security, and scale.',
-    icon: LuCode,
+      'Orinon designs and implements modern pipelines and architectures across Data Lakes, ODS, Data Warehouses, Big Data, Cloud, and DataOps environments.',
+    icon: LuActivity,
     bullets: [
-      'Product design and rapid prototyping',
-      'Full-stack development for modern platforms',
-      'Performance tuning and secure release pipelines',
+      'Data Lake, Data Streaming, ETL and ELT',
+      'Data Warehouse and Data Wrangling',
+      'Cloud Infrastructure and platform reliability',
     ],
   },
   {
-    id: 'data',
-    title: 'Data & Analytics',
+    id: 'analytics',
+    title: 'Analytics & Visualisation',
     description:
-      'Turn raw data into pipelines, dashboards, and decisions your teams can act on with confidence.',
+      'Orinon turns raw data into actionable intelligence through business intelligence, self-service analytics, storytelling, and smart visual experiences.',
     icon: LuChartColumnBig,
     bullets: [
-      'Data platform architecture and modernization',
-      'Executive dashboards and KPI systems',
-      'Data quality, governance, and automation',
-    ],
-  },
-  {
-    id: 'security',
-    title: 'Cybersecurity',
-    description:
-      'Protect your business with proactive monitoring, audits, and zero-trust security architecture.',
-    icon: LuShieldCheck,
-    bullets: [
-      'Security assessments and compliance readiness',
-      'Zero-trust identity and access controls',
-      'Threat detection, response, and hardening',
+      'Business Intelligence and Self-Service Analytics',
+      'Data Visualisation and storytelling',
+      'Data Science and Smart Analytics',
     ],
   },
   {
     id: 'ai',
-    title: 'AI & Automation',
+    title: 'Artificial Intelligence',
     description:
-      'Deploy intelligent automation and AI workflows that cut cost, error, and repetitive busywork.',
+      'As an extension of Orinon data engineering and advanced analytics capability, AI services support intelligent automation and stronger decision-making.',
     icon: LuBrainCircuit,
     bullets: [
-      'Workflow automation with measurable ROI',
-      'LLM product strategy and guardrails',
-      'Internal copilots and knowledge assistants',
+      'Scheduling and Optimisation solutions',
+      'Natural Language Processing and Robotics',
+      'Machine Learning for enterprise use cases',
     ],
   },
   {
     id: 'managed',
-    title: 'Managed IT Support',
+    title: 'Managed Solutions',
     description:
-      '24/7 helpdesk, monitoring, and IT management so your people stay productive and secure.',
-    icon: LuActivity,
+      'Beyond implementation projects, Orinon provides managed application and technology services to keep systems stable, optimized, and valuable over the long term.',
+    icon: LuShieldCheck,
     bullets: [
-      'Helpdesk, endpoint, and identity management',
-      'SLA-backed monitoring and escalation',
-      'Long-term roadmap support for internal teams',
+      'Outsourcing and technical expertise on demand',
+      'Support, maintenance, and managed services',
+      'Operational continuity and performance assurance',
+    ],
+  },
+  {
+    id: 'applications',
+    title: 'Application Development',
+    description:
+      'Orinon develops custom applications across backend, frontend, web, mobile, and integration platforms using modern engineering practices.',
+    icon: LuCode,
+    bullets: [
+      'Backend and Frontend development',
+      '.NET, Java, PHP, Mobile, and IoT capabilities',
+      'Business process, integration, and collaboration apps',
     ],
   },
 ];
 
 export const whyChooseOrinon = [
   {
-    title: 'Proven Expertise',
+    title: 'Data and AI Specialization',
     description:
-      'Senior, certified engineers with deep experience across regulated and high-scale industries.',
+      'Focused expertise across analytics, AI, business intelligence, and digital transformation.',
     icon: LuShieldCheck,
   },
   {
-    title: 'Reliability',
+    title: 'Regional Delivery Experience',
     description:
-      '99.9% uptime SLAs, rigorous testing, and delivery you can plan your roadmap around.',
+      'Proven work across Zimbabwe, Africa, and regional markets in public and private sectors.',
     icon: LuActivity,
   },
   {
-    title: 'Innovation',
+    title: 'One-Stop Data Platform Services',
     description:
-      'A modern stack and pragmatic R&D mindset that keeps your technology ahead of the curve.',
+      'From strategy through implementation and managed operations under one delivery model.',
     icon: LuBrainCircuit,
   },
   {
-    title: 'Client Focus',
+    title: 'Best-Practice Execution',
     description:
-      'Dedicated teams, transparent communication, and partnership that outlasts the project.',
+      'International best practices, operating models, and innovative technologies tailored to each client.',
     icon: LuBlocks,
   },
 ];
 
 export const homeStats: Stat[] = [
-  { value: '12+', label: 'Years of experience' },
-  { value: '480+', label: 'Projects delivered' },
-  { value: '250+', label: 'Clients served' },
-  { value: '98%', label: 'Client satisfaction' },
+  { value: 'Est. 2018', label: 'Established in Zimbabwe' },
+  { value: '10+ Years', label: 'Consultant experience' },
+  { value: 'End-to-End', label: 'Data solutions capability' },
+  { value: 'Public & Private', label: 'Sector delivery experience' },
+  { value: 'Zimbabwe + Africa', label: 'Regional service footprint' },
 ];
 
 export const aboutStats: Stat[] = [
-  { value: '60+', label: 'Specialists on staff' },
-  { value: '18', label: 'Countries served' },
-  { value: '96%', label: 'Client retention' },
-  { value: '99.9%', label: 'Average uptime' },
+  { value: '2018', label: 'Year established' },
+  { value: '10+ Years', label: 'Consultant data expertise' },
+  { value: 'One-Stop', label: 'Modern data platform services' },
+  { value: 'Africa', label: 'Industry development commitment' },
 ];
 
 export const processSteps = [
   {
     number: '01',
-    title: 'Discovery',
+    title: 'Assess',
     description:
-      'We map your goals, constraints, and systems to define a clear picture of success.',
+      'We assess your current data journey, operating model, and target outcomes.',
   },
   {
     number: '02',
-    title: 'Strategy',
+    title: 'Architect',
     description:
-      'We design the architecture, roadmap, and milestones with transparent scope and timelines.',
+      'We define strategy, blueprint architecture, and the delivery roadmap aligned to your stack.',
   },
   {
     number: '03',
-    title: 'Implementation',
+    title: 'Implement',
     description:
-      'Our senior engineers build, test, and ship in tight iterations with continuous visibility.',
+      'Our teams deliver data engineering, analytics, AI, and applications using best practices.',
   },
   {
     number: '04',
-    title: 'Support',
+    title: 'Operate',
     description:
-      'We monitor, optimize, and evolve your systems long after launch as a true ongoing partner.',
+      'Managed solutions provide ongoing support, optimization, and operational continuity.',
   },
 ];
 
@@ -156,71 +157,71 @@ export const faqs: FaqItem[] = [
   {
     question: 'What industries do you specialize in?',
     answer:
-      'We work across fintech, healthcare, logistics, retail, and SaaS, adapting our process to your sector’s operational and compliance needs.',
+      'Orinon supports banking, agriculture, manufacturing, tourism, government, telecommunications, financial institutions, and other sectors across Zimbabwe and Africa.',
   },
   {
-    question: 'How do you price engagements?',
+    question: 'What core services do you provide?',
     answer:
-      'We offer fixed-scope projects, dedicated team retainers, and managed-service plans, all with transparent milestones and no hidden costs.',
+      'Core services include Advisory and Strategic Data Services, Data Engineering, Analytics and Visualisation, Artificial Intelligence, Managed Solutions, and Application Development.',
   },
   {
-    question: 'Can you work with our internal team?',
+    question: 'Do you support cloud-based modernization?',
     answer:
-      'Yes. We frequently embed alongside in-house teams, extending delivery capacity and transferring knowledge as we go.',
+      'Yes. Orinon helps clients modernize to cloud-ready architectures with supporting technologies and operational models aligned to business objectives.',
   },
   {
-    question: 'How do you handle security and compliance?',
+    question: 'Can Orinon provide managed services after implementation?',
     answer:
-      'Security is built into every phase with zero-trust principles, audit-ready documentation, and support for SOC 2, HIPAA, and GDPR initiatives.',
+      'Yes. Orinon delivers managed solutions including outsourcing, support, maintenance, and technical expertise to ensure sustained performance.',
   },
   {
-    question: 'What does ongoing support look like?',
+    question: 'Which regions do you serve?',
     answer:
-      'Managed plans include 24/7 monitoring, a dedicated helpdesk, regular optimization reviews, and guaranteed response times.',
+      'Orinon serves organizations in Zimbabwe, across Africa, and in regional countries through local and remote delivery models.',
   },
   {
-    question: 'How quickly can we get started?',
+    question: 'How does Orinon contribute to data science growth in Africa?',
     answer:
-      'Most engagements start within one to two weeks of proposal approval, with urgent discovery sprints available faster when needed.',
+      'Orinon supports career development, online training programs, vocational training, and partnerships with universities to grow data science capability in Africa.',
   },
 ];
 
 export const teamMembers: TeamMember[] = [
-  { name: 'Elena Marsh', role: 'Chief Executive Officer', initials: 'EM' },
-  { name: 'Marcus Boateng', role: 'Chief Technology Officer', initials: 'MB' },
-  { name: 'Priya Nair', role: 'VP, Client Delivery', initials: 'PN' },
-  { name: 'Jonah Feld', role: 'Head of Security', initials: 'JF' },
+  { name: 'Project Managers', role: 'Delivery leadership', initials: 'PM' },
+  { name: 'Business Analysts', role: 'Business requirements and value mapping', initials: 'BA' },
+  { name: 'Data Architects', role: 'Modern platform and data blueprint design', initials: 'DA' },
+  { name: 'Data Engineers', role: 'Pipeline, integration, and platform implementation', initials: 'DE' },
 ];
 
 export const timeline = [
   {
-    year: '2014',
-    title: 'Orinon is founded',
+    year: '2018',
+    title: 'Orinon Info Tech established',
     description:
-      'Three engineers set out to build technology partnerships that actually last.',
-  },
-  {
-    year: '2017',
-    title: 'Cloud practice launched',
-    description:
-      'The team became a certified partner across the three major cloud providers.',
+      'Orinon launched to deliver specialized data analytics and digital solutions in Zimbabwe.',
   },
   {
     year: '2020',
-    title: 'Crossed 100 clients',
+    title: 'Regional sector growth',
     description:
-      'Managed services and security delivery expanded to support growing global teams.',
+      'Delivery expanded across key sectors including banking, government, telecoms, and manufacturing.',
   },
   {
-    year: '2023',
-    title: 'AI & automation division',
+    year: '2022',
+    title: 'Expanded data platform services',
     description:
-      'A dedicated practice opened to help clients operationalize AI responsibly.',
+      'Capabilities scaled across data engineering, analytics, visualization, and managed solutions.',
+  },
+  {
+    year: '2024',
+    title: 'AI solution acceleration',
+    description:
+      'AI and data science offerings matured for automation, optimization, and decision intelligence.',
   },
   {
     year: '2026',
-    title: '480+ projects delivered',
+    title: 'Regional delivery momentum',
     description:
-      'Today Orinon’s 60+ specialists serve clients across 18 countries.',
+      'Orinon continues supporting organizations across Zimbabwe, Africa, and regional countries.',
   },
 ];

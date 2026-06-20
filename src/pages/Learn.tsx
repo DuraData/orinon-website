@@ -13,8 +13,8 @@ export function Learn() {
   const [query, setQuery] = useState('');
 
   usePageMeta(
-    'Learn | Orinon',
-    'Read Orinon insights on cloud, cybersecurity, AI, data, development, and technology strategy.',
+    'Learn | Orinon Info Tech',
+    'Read Orinon Info Tech insights on data analytics, artificial intelligence, business intelligence, data engineering, and digital transformation.',
   );
 
   const featured = blogPosts.find((post) => post.featured) ?? blogPosts[0];
@@ -38,8 +38,8 @@ export function Learn() {
     <>
       <PageHero
         eyebrow="Insights & Ideas"
-        title="The Orinon journal"
-        description="Practical perspectives on cloud, security, AI, and building technology that scales."
+        title="Orinon Insights"
+        description="Practical perspectives on data analytics, AI, business intelligence, data engineering, and digital transformation."
       />
 
       <section className="bg-white pb-12 pt-16">

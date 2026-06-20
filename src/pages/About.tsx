@@ -7,48 +7,54 @@ import { Card } from '../components/ui/Card';
 import { Container } from '../components/ui/Container';
 import { Reveal } from '../components/ui/Reveal';
 import { SectionTitle } from '../components/ui/SectionTitle';
-import { aboutStats, teamMembers, timeline } from '../data/services';
+import { aboutStats } from '../data/services';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 const values = [
   {
-    title: 'Integrity',
+    title: 'Innovation',
     description:
-      'We do what we say, flag risks early, and earn trust through transparency on every engagement.',
-    icon: LuShieldCheck,
+      'Driving continuous innovation to develop cutting-edge data, analytics, and digital solutions.',
+    icon: LuBrainCircuit,
   },
   {
     title: 'Excellence',
     description:
-      'We hold a high bar for craft with clean code, thoughtful design, and measurable outcomes.',
+      'Commitment to excellence in work quality, product development, and client service delivery.',
     icon: LuSparkles,
   },
   {
-    title: 'Innovation',
+    title: 'Integrity',
     description:
-      'We challenge the status quo and bring modern thinking to problems others call impossible.',
-    icon: LuBrainCircuit,
+      'Upholding high standards of ethics, trust, and integrity in all engagements and relationships.',
+    icon: LuShieldCheck,
   },
   {
-    title: 'Customer Success',
+    title: 'Collaboration',
     description:
-      'Your goals define ours, and we measure success by the impact we create for your business.',
+      'Fostering strong collaboration within teams and with clients and partners to achieve shared goals.',
     icon: LuBlocks,
+  },
+  {
+    title: 'Learning',
+    description:
+      'Encouraging continuous learning and skill-building to keep pace with modern data and AI innovation.',
+    icon: LuBrainCircuit,
   },
 ];
 
 export function About() {
   usePageMeta(
-    'About | Orinon',
-    'Learn about Orinon’s story, values, leadership, and long-term approach to technology partnerships.',
+    'About | Orinon Info Tech',
+    'Learn how Orinon Info Tech delivers data analytics, AI, business intelligence, digital transformation, and application development across Zimbabwe and Africa.',
   );
 
   return (
     <>
       <PageHero
         eyebrow="Our Story"
-        title="A decade of building what lasts"
-        description="Orinon was founded on a simple belief: technology partnerships should outlast the project. Today we serve clients across 18 countries with that same conviction."
+        title="Orinon Info Tech: Data and AI solutions since 2018"
+        description="Orinon Info Tech helps organizations unlock value through modern data platforms, analytics, artificial intelligence, digital transformation, and application development."
       />
 
       <section className="bg-white py-24">
@@ -61,7 +67,7 @@ export function About() {
                     OR
                   </div>
                   <p className="mt-4 font-display text-sm uppercase tracking-[0.22em] text-slate-400">
-                    Team photo placeholder
+                    Orinon Info Tech
                   </p>
                 </div>
               </div>
@@ -69,23 +75,61 @@ export function About() {
           </Reveal>
           <Reveal delay={0.12}>
             <SectionTitle
-              eyebrow="Mission & Vision"
-              title="Technology in service of real outcomes"
-              description="Our mission is to help organizations grow with confidence by pairing senior engineering talent with a disciplined, transparent process."
+              eyebrow="About Us"
+              title="One-stop data and digital solutions partner"
+              description="Established in 2018, Orinon has contributed to the evolution of Data Analytics and Artificial Intelligence in Zimbabwe and regional countries, while preparing organizations for the next decade of digital innovation."
             />
             <p className="mt-5 leading-8 text-muted">
-              We believe the best technology disappears into results: revenue, resilience, and time
-              given back to your team. Our vision is to be the partner companies trust for the next
-              decade of their technology, not a vendor they replace, but a team they build with.
+              Orinon provides one-stop data solutions based on internationally recognized best
+              practices, operating models, and innovative technologies. The company supports
+              blue-chip public and private sector customers to unlock value, implement digital
+              transformation, and improve profitability and efficiency.
+            </p>
+            <p className="mt-5 leading-8 text-muted">
+              Orinon has completed consultancy, turnkey, operation, and maintenance contracts for
+              financial institutions, ministries, government organizations, telecommunications
+              operators, equipment providers, and other organizations across regional markets.
+            </p>
+            <p className="mt-5 leading-8 text-muted">
+              Orinon is committed to developing the Data Science industry in Africa through career
+              development, online training programs, vocational training, and university
+              partnerships.
             </p>
           </Reveal>
         </Container>
       </section>
 
       <section className="bg-cloud py-24">
+        <Container className="grid gap-8 lg:grid-cols-2">
+          <Reveal>
+            <Card className="h-full p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-700">Vision</p>
+              <p className="mt-4 leading-8 text-muted">
+                By 2030, Orinon aims to be the number one provider of data analytics and business
+                intelligence solutions in Zimbabwe. By 2035, at least 50% of revenue should come
+                from AI-driven and intelligent automation solutions delivered to clients across
+                Africa. Through continuous learning, applied research, and innovation, Orinon
+                aspires to build world-class digital solutions that inspire progress and empower
+                customers globally.
+              </p>
+            </Card>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <Card className="h-full p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-700">Mission</p>
+              <p className="mt-4 leading-8 text-muted">
+                To empower organizations across industries through transformational data and digital
+                solutions.
+              </p>
+            </Card>
+          </Reveal>
+        </Container>
+      </section>
+
+      <section className="bg-cloud py-24">
         <Container>
-          <SectionTitle align="center" eyebrow="What We Stand For" title="Our core values" />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <SectionTitle align="center" eyebrow="Values" title="How we work" />
+          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
@@ -108,41 +152,24 @@ export function About() {
 
       <section className="bg-white py-24">
         <Container>
-          <SectionTitle align="center" eyebrow="Leadership" title="The people behind Orinon" />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {teamMembers.map((member, index) => (
-              <Reveal key={member.name} delay={index * 0.06}>
-                <div className="text-center">
-                  <div className="flex aspect-square items-center justify-center rounded-[1.125rem] border border-brand-100 bg-gradient-to-br from-brand-50 to-slate-100">
-                    <span className="font-display text-4xl font-bold text-brand-700">
-                      {member.initials}
-                    </span>
-                  </div>
-                  <h3 className="mt-5 font-display text-xl font-bold text-ink">{member.name}</h3>
-                  <p className="mt-1 text-sm text-muted">{member.role}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-cloud py-24">
-        <Container className="max-w-5xl">
-          <SectionTitle align="center" eyebrow="Milestones" title="Our journey so far" />
-          <div className="mt-14 space-y-1">
-            {timeline.map((item, index) => (
-              <Reveal key={item.year} delay={index * 0.05}>
-                <div className="grid gap-4 py-4 sm:grid-cols-[90px_1fr] sm:gap-8">
-                  <div className="font-display text-2xl font-extrabold text-brand-700 sm:text-right">
-                    {item.year}
-                  </div>
-                  <div className="relative border-l-2 border-slate-200 pl-7 pb-8">
-                    <span className="absolute -left-[9px] top-1 h-4 w-4 rounded-full border-4 border-cloud bg-brand-700" />
-                    <h3 className="font-display text-xl font-bold text-ink">{item.title}</h3>
-                    <p className="mt-2 leading-7 text-muted">{item.description}</p>
-                  </div>
-                </div>
+          <SectionTitle
+            align="center"
+            eyebrow="Sectors Served"
+            title="Public and private sector delivery experience"
+          />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              'Financial institutions',
+              'Ministries and government organizations',
+              'Telecommunications operators',
+              'Equipment providers',
+              'Banking and manufacturing organizations',
+              'Agriculture, tourism, and other sectors',
+            ].map((sector, index) => (
+              <Reveal key={sector} delay={index * 0.05}>
+                <Card className="h-full p-6">
+                  <p className="text-sm leading-7 text-slate">{sector}</p>
+                </Card>
               </Reveal>
             ))}
           </div>

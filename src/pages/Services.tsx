@@ -11,25 +11,46 @@ import { SectionTitle } from '../components/ui/SectionTitle';
 import { faqs, processSteps, services } from '../data/services';
 import { usePageMeta } from '../hooks/usePageMeta';
 
-const cloudBenefits = [
-  'Multi-cloud architecture across AWS, Azure, and Google Cloud',
-  'Zero-downtime migrations and continuous delivery',
-  'Cost optimization with practical FinOps governance',
-  '24/7 monitoring and full-stack observability',
+const methodologyRoles = [
+  'Project Managers',
+  'Business Analysts',
+  'Data Analysts',
+  'Data Modellers',
+  'Data Architects',
+  'Data Engineers',
+  'Data Visualisation Engineers',
+];
+
+const modernDataPlatform = [
+  'Sources',
+  'Data Lake',
+  'Data Stores / ODS',
+  'Data Warehouse',
+  'Advanced Analytics',
+  'Data Science',
+  'Applications',
+  'Visualisation',
+  'Master Data Management',
+  'Enrichment',
+  'Security & Access',
+  'Data Storage',
+  'Data Ingestion',
+  'Data Governance',
+  'Data Integration',
 ];
 
 export function Services() {
   usePageMeta(
-    'Services | Orinon',
-    'Explore Orinon services across cloud, software, security, AI, data, and managed IT support.',
+    'Services | Orinon Info Tech',
+    'Explore Orinon Info Tech services across advisory, data engineering, analytics, artificial intelligence, managed solutions, and application development.',
   );
 
   return (
     <>
       <PageHero
         eyebrow="What We Offer"
-        title="Services built to scale with you"
-        description="A complete technology partner from cloud architecture and custom software to security, data, and 24/7 managed support."
+        title="Specialist services across the modern data platform"
+        description="Orinon Info Tech provides advisory, engineering, analytics, AI, managed services, and application development for organizations across Zimbabwe, Africa, and regional markets."
       />
 
       <section className="bg-white py-20">
@@ -67,50 +88,38 @@ export function Services() {
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <SectionTitle
-              eyebrow="Cloud & Infrastructure"
-              title="Resilient cloud, engineered end to end"
-              description="We design, migrate, and operate cloud environments that stay fast, secure, and cost-efficient as you grow with full observability and zero-downtime delivery."
+              eyebrow="Methodology"
+              title="One-stop service across your data journey"
+              description="In alignment with each client’s preferred technology stack, Orinon identifies and assigns the right expertise to deliver intended objectives across strategy, implementation, and operations."
             />
             <div className="mt-8 space-y-4">
-              {cloudBenefits.map((benefit) => (
-                <div key={benefit} className="flex gap-3">
+              {methodologyRoles.map((role) => (
+                <div key={role} className="flex gap-3">
                   <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-50 text-brand-700">
                     <LuCheck className="text-xs" />
                   </span>
-                  <span className="leading-7 text-slate">{benefit}</span>
+                  <span className="leading-7 text-slate">{role}</span>
                 </div>
               ))}
             </div>
             <div className="mt-8">
-              <Button href="/contact">Discuss Your Platform</Button>
+              <Button href="/contact">Contact Orinon Info Tech</Button>
             </div>
           </Reveal>
 
           <Reveal delay={0.12}>
             <div className="rounded-[1.35rem] border border-brand-100 bg-[repeating-linear-gradient(135deg,#E7E9F4_0px,#E7E9F4_11px,#EEF0F8_11px,#EEF0F8_22px)] p-6 shadow-card">
               <div className="rounded-[1.2rem] border border-line bg-white/80 p-6 backdrop-blur">
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div className="rounded-2xl bg-dark-gradient p-5 text-white">
-                    <p className="text-xs uppercase tracking-[0.16em] text-indigo-100/60">Regions</p>
-                    <p className="mt-3 font-display text-3xl font-bold">18</p>
-                    <p className="mt-3 text-sm text-indigo-100/75">Connected environments with shared governance.</p>
-                  </div>
-                  <div className="rounded-2xl border border-line bg-cloud p-5">
-                    <p className="text-xs uppercase tracking-[0.16em] text-muted">Release cadence</p>
-                    <p className="mt-3 font-display text-3xl font-bold text-ink">Weekly</p>
-                    <p className="mt-3 text-sm text-muted">Automated delivery with rollback-ready controls.</p>
-                  </div>
-                  <div className="rounded-2xl border border-line bg-white p-5 md:col-span-2">
-                    <p className="font-display text-sm uppercase tracking-[0.18em] text-slate-400">
-                      Architecture diagram
-                    </p>
-                    <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                      {['Edge', 'Core Services', 'Security Layer'].map((label) => (
-                        <div key={label} className="rounded-2xl border border-line bg-cloud px-4 py-8 text-center">
-                          <p className="font-display text-lg font-semibold text-ink">{label}</p>
-                        </div>
-                      ))}
-                    </div>
+                <div className="rounded-2xl border border-line bg-white p-5">
+                  <p className="font-display text-sm uppercase tracking-[0.18em] text-slate-400">
+                    Modern Data Platform
+                  </p>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {modernDataPlatform.map((item) => (
+                      <div key={item} className="rounded-xl border border-line bg-cloud px-4 py-3">
+                        <p className="text-sm font-semibold text-slate">{item}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -124,7 +133,7 @@ export function Services() {
           <SectionTitle
             align="center"
             eyebrow="How We Work"
-            title="A proven four-step process"
+            title="A practical delivery framework"
           />
           <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {processSteps.map((step, index) => (

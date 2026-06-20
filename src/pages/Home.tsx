@@ -12,17 +12,17 @@ import { homeStats, services, whyChooseOrinon } from '../data/services';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 const heroMetrics = [
-  { value: '12+ yrs', label: 'In business' },
-  { value: '250+', label: 'Clients served' },
-  { value: '99.9%', label: 'Uptime SLA' },
+  { value: 'Est. 2018', label: 'Established in Zimbabwe' },
+  { value: '10+ Years', label: 'Consultant experience' },
+  { value: 'Zimbabwe + Africa', label: 'Primary market reach' },
 ];
 
 const heroBars = [42, 58, 70, 52, 80, 66, 90, 74, 84];
 
 export function Home() {
   usePageMeta(
-    'Orinon | Technology Services That Scale With Confidence',
-    'Orinon delivers software, cloud, security, data, AI, and managed IT services that help businesses grow with confidence.',
+    'Orinon Info Tech | Data, AI, and Digital Transformation',
+    'Orinon Info Tech helps organizations unlock value through modern data platforms, analytics, artificial intelligence, digital transformation, and application development.',
   );
 
   return (
@@ -32,20 +32,20 @@ export function Home() {
           <Reveal>
             <div className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700">
               <span className="h-2 w-2 rounded-full bg-gold" />
-              Trusted technology partner since 2014
+              Orinon Info Tech | Established 2018
             </div>
             <h1 className="mt-6 max-w-3xl font-display text-5xl font-extrabold leading-none tracking-[-0.04em] text-ink sm:text-6xl">
-              Helping businesses scale with <span className="text-brand-700">confidence</span>.
+              Transforming Data into <span className="text-brand-700">Intelligent Business Growth</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
-              Orinon delivers software, cloud, and managed IT services that help organizations
-              grow, innovate, and operate with certainty, engineered for performance and built to
-              last.
+              Orinon Info Tech delivers end-to-end data, analytics, artificial intelligence,
+              business intelligence, and digital transformation solutions for organizations across
+              Zimbabwe and Africa.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button href="/contact">Get Started</Button>
-              <Button href="/services" variant="secondary">
-                Explore Services <LuArrowRight className="ml-2" />
+              <Button href="/services">Explore Our Services</Button>
+              <Button href="/contact" variant="secondary">
+                Contact Us <LuArrowRight className="ml-2" />
               </Button>
             </div>
             <div className="mt-10 flex flex-wrap gap-8">
@@ -70,9 +70,9 @@ export function Home() {
                   </span>
                 </div>
                 <div className="rounded-2xl bg-dark-gradient p-6 text-white">
-                  <p className="text-sm text-indigo-100/70">Monthly performance</p>
+                  <p className="text-sm text-indigo-100/70">Core capability coverage</p>
                   <p className="mt-2 font-display text-4xl font-bold">
-                    99.98% <span className="text-base font-semibold text-gold">uptime</span>
+                    6 <span className="text-base font-semibold text-gold">service pillars</span>
                   </p>
                   <div className="mt-6 flex h-24 items-end gap-2">
                     {heroBars.map((height, index) => (
@@ -90,12 +90,12 @@ export function Home() {
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-3">
                   <div className="rounded-2xl border border-line p-4">
-                    <p className="text-xs text-muted">Deployments</p>
-                    <p className="font-display text-2xl font-bold text-ink">1,204</p>
+                    <p className="text-xs text-muted">Focus</p>
+                    <p className="font-display text-2xl font-bold text-ink">Data + AI</p>
                   </div>
                   <div className="rounded-2xl border border-line p-4">
-                    <p className="text-xs text-muted">Threats blocked</p>
-                    <p className="font-display text-2xl font-bold text-ink">38.6k</p>
+                    <p className="text-xs text-muted">Coverage</p>
+                    <p className="font-display text-2xl font-bold text-ink">Public + Private</p>
                   </div>
                 </div>
               </Card>
@@ -109,8 +109,8 @@ export function Home() {
                   <LuCheck />
                 </span>
                 <div>
-                  <p className="text-xs text-muted">SOC 2 Type II</p>
-                  <p className="font-display text-sm font-bold text-ink">Certified secure</p>
+                  <p className="text-xs text-muted">Technology Ecosystem</p>
+                  <p className="font-display text-sm font-bold text-ink">Microsoft | Amazon | Google</p>
                 </div>
               </motion.div>
             </div>
@@ -125,8 +125,8 @@ export function Home() {
           <SectionTitle
             align="center"
             eyebrow="What We Do"
-            title="Technology services that move your business forward"
-            description="From strategy to support, we deliver the full technology stack so you can focus on outcomes, not infrastructure."
+            title="Specialist data and technology solutions"
+            description="Orinon Info Tech helps organizations unlock value through modern data platforms, analytics, artificial intelligence, digital transformation, and application development."
           />
           <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {services.map((service, index) => {
@@ -187,6 +187,43 @@ export function Home() {
               );
             })}
           </div>
+        </Container>
+      </section>
+
+      <section className="bg-white py-20">
+        <Container>
+          <SectionTitle
+            align="center"
+            eyebrow="Partners & Client Sectors"
+            title="Technology ecosystem and industry coverage"
+            description="Orinon Info Tech works across a broad technology ecosystem and supports organizations in core economic sectors across Zimbabwe and Africa."
+          />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {[
+              'Microsoft',
+              'Amazon',
+              'Google',
+              'Banking',
+              'Agriculture',
+              'Manufacturing',
+              'Tourism',
+              'Government',
+              'Telecommunications',
+              'Financial Institutions',
+              'And many more',
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-xl border border-line bg-cloud px-4 py-4 text-center text-sm font-semibold text-slate"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-sm text-muted">
+            Technology Ecosystem & Client Sectors representation is based on profile scope and does
+            not imply exclusive formal partnership status.
+          </p>
         </Container>
       </section>
 
