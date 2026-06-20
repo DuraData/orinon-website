@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dist:branch": "pwsh -ExecutionPolicy Bypass -File ./scripts/publish-dist-branch.ps1",
+    "dist:branch:local": "pwsh -ExecutionPolicy Bypass -File ./scripts/publish-dist-branch.ps1 -Push:$false"
   },
   "dependencies": {
     "framer-motion": "^11.15.0",
