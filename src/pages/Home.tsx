@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { LuArrowRight, LuCheck } from 'react-icons/lu';
 
@@ -10,10 +9,7 @@ import { Container } from '../components/ui/Container';
 import { Reveal } from '../components/ui/Reveal';
 import { SectionTitle } from '../components/ui/SectionTitle';
 import { homeStats, services, whyChooseOrinon } from '../data/services';
-import { testimonials } from '../data/testimonials';
 import { usePageMeta } from '../hooks/usePageMeta';
-
-const clientLogos = ['Meridian', 'Nimbus', 'Brightline', 'Cadence', 'Vantage'];
 
 const heroMetrics = [
   { value: '12+ yrs', label: 'In business' },
@@ -24,22 +20,10 @@ const heroMetrics = [
 const heroBars = [42, 58, 70, 52, 80, 66, 90, 74, 84];
 
 export function Home() {
-  const [active, setActive] = useState(0);
-
   usePageMeta(
     'Orinon | Technology Services That Scale With Confidence',
     'Orinon delivers software, cloud, security, data, AI, and managed IT services that help businesses grow with confidence.',
   );
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActive((current) => (current + 1) % testimonials.length);
-    }, 6500);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
-  const currentTestimonial = testimonials[active];
 
   return (
     <>
@@ -134,19 +118,6 @@ export function Home() {
         </Container>
       </section>
 
-      <section className="border-y border-slate-100 bg-white py-7">
-        <Container className="flex flex-wrap items-center justify-center gap-6 text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
-            Trusted by teams at
-          </span>
-          {clientLogos.map((logo) => (
-            <span key={logo} className="font-display text-xl font-bold text-slate-300">
-              {logo}
-            </span>
-          ))}
-        </Container>
-      </section>
-
       <StatGrid stats={homeStats} />
 
       <section className="bg-cloud py-20">
@@ -215,60 +186,6 @@ export function Home() {
                 </Reveal>
               );
             })}
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-white py-20">
-        <Container className="max-w-4xl">
-          <SectionTitle align="center" eyebrow="Client Stories" title="What our clients say" />
-          <Reveal className="mt-12">
-            <Card className="rounded-[1.4rem] bg-cloud p-8 text-center sm:p-12">
-              <div className="font-display text-7xl leading-none text-slate-200">“</div>
-              <p className="mx-auto max-w-3xl text-xl font-medium leading-9 text-slate sm:text-2xl">
-                {currentTestimonial.quote}
-              </p>
-              <div className="mt-8 flex items-center justify-center gap-4">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-cta-gradient font-display text-lg font-bold text-white">
-                  {currentTestimonial.initials}
-                </div>
-                <div className="text-left">
-                  <p className="font-semibold text-ink">{currentTestimonial.name}</p>
-                  <p className="text-sm text-muted">{currentTestimonial.role}</p>
-                </div>
-              </div>
-            </Card>
-          </Reveal>
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <button
-              type="button"
-              aria-label="Previous testimonial"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 transition hover:border-brand-700 hover:text-brand-700"
-              onClick={() => setActive((current) => (current - 1 + testimonials.length) % testimonials.length)}
-            >
-              ←
-            </button>
-            <div className="flex gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  aria-label={`Show testimonial ${index + 1}`}
-                  className={`h-2.5 rounded-full transition ${
-                    index === active ? 'w-7 bg-brand-700' : 'w-2.5 bg-slate-300'
-                  }`}
-                  onClick={() => setActive(index)}
-                />
-              ))}
-            </div>
-            <button
-              type="button"
-              aria-label="Next testimonial"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 transition hover:border-brand-700 hover:text-brand-700"
-              onClick={() => setActive((current) => (current + 1) % testimonials.length)}
-            >
-              →
-            </button>
           </div>
         </Container>
       </section>
