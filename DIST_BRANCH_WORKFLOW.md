@@ -9,10 +9,9 @@ npm run dist:branch
 ```
 
 Default behavior:
-- Runs `npm run build`
-- Creates/updates `dist-only` branch using an orphan history snapshot
-- Commits only root deploy artifacts (`index.html`, `assets/`, `.htaccess`)
-- Force-pushes to `origin/dist-only`
+- Updates local `dist-only` from current `dist/` output using `scripts/update-dist-branch.mjs`
+- Force-pushes `dist-only` to `origin/dist-only`
+- Dist branch content excludes `node_modules` and `.vite`
 
 ## Main branch publish command
 
@@ -21,9 +20,8 @@ npm run dist:main
 ```
 
 Behavior:
-- Requires current branch to be `main` before publishing (fails fast otherwise)
-- Auto-runs `npm ci` when local TypeScript build tooling is missing
-- Runs build, then force-pushes dist-only content to `origin/dist-only`
+- Requires current branch to be `main` before publishing
+- Runs build, updates `dist-only`, then force-pushes to `origin/dist-only`
 
 For dry runs without pushing:
 
@@ -34,12 +32,12 @@ npm run dist:main:local
 ## Optional usage
 
 ```powershell
-pwsh -ExecutionPolicy Bypass -File ./scripts/publish-dist-branch.ps1 -BranchName dist-only -RemoteName origin -CommitMessage "Publish dist build" -SkipBuild
+node ./scripts/update-dist-branch.mjs
+git push --force origin dist-only:dist-only
 ```
 
 ## Notes
 
 - This does not modify your current working branch files.
-- It uses a temporary git worktree under `.dist-worktree` and removes it after publishing.
-- Branch history is rewritten each publish (`--force`) so it stays clean and dist-only.
+- Branch history remains linear by committing on top of the previous `dist-only` commit.
 - For Hostinger, use the `dist-only` branch content directly in `public_html`.

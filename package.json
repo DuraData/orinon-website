@@ -8,10 +8,12 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "build:main": "npm run dist:main",
-    "dist:branch": "pwsh -ExecutionPolicy Bypass -File ./scripts/publish-dist-branch.ps1",
-    "dist:branch:local": "pwsh -ExecutionPolicy Bypass -File ./scripts/publish-dist-branch.ps1 -Push:$false",
-    "dist:main": "pwsh -ExecutionPolicy Bypass -File ./scripts/publish-dist-branch.ps1 -SourceBranch main",
-    "dist:main:local": "pwsh -ExecutionPolicy Bypass -File ./scripts/publish-dist-branch.ps1 -SourceBranch main -Push:$false"
+    "check:main": "node -e \"const { execSync } = require('node:child_process'); const branch = execSync('git branch --show-current', { encoding: 'utf8' }).trim(); if (branch !== 'main') { console.error('Current branch must be main.'); process.exit(1); }\"",
+    "dist:branch:update": "node ./scripts/update-dist-branch.mjs",
+    "dist:branch": "npm run dist:branch:update && git push --force origin dist-only:dist-only",
+    "dist:branch:local": "npm run dist:branch:update",
+    "dist:main": "npm run check:main && npm run build && npm run dist:branch",
+    "dist:main:local": "npm run check:main && npm run build && npm run dist:branch:local"
   },
   "dependencies": {
     "framer-motion": "^11.15.0",
