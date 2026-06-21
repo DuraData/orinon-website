@@ -2,6 +2,8 @@ param(
   [string]$BranchName = "dist-only",
   [string]$RemoteName = "origin",
   [string]$CommitMessage = "Publish dist build",
+  [string]$SourceBranch = "main",
+  [switch]$SkipSourceBranchCheck,
   [switch]$SkipBuild,
   [switch]$Push = $true
 )
@@ -12,6 +14,7 @@ $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 $distPath = Join-Path $repoRoot "dist"
 $snapshotRoot = Join-Path $repoRoot ".dist-snapshot"
 $worktreePath = Join-Path $repoRoot ".dist-worktree"
+$sessionBranch = "dist-publish-$([DateTime]::UtcNow.ToString('yyyyMMddHHmmss'))"
 
 function Invoke-Git {
   param(
@@ -27,6 +30,24 @@ function Invoke-Git {
 
 Push-Location $repoRoot
 try {
+  $currentBranch = (& git rev-parse --abbrev-ref HEAD).Trim()
+  if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($currentBranch)) {
+    throw "Unable to detect current git branch."
+  }
+
+  if (-not $SkipSourceBranchCheck -and $currentBranch -ne $SourceBranch) {
+    throw "Current branch '$currentBranch' does not match required source branch '$SourceBranch'. Use -SkipSourceBranchCheck to override."
+  }
+
+  $typescriptCli = Join-Path $repoRoot "node_modules/typescript/bin/tsc"
+  if (-not (Test-Path $typescriptCli)) {
+    Write-Host "[dist-branch] Missing local build dependencies. Running npm ci..."
+    npm ci
+    if ($LASTEXITCODE -ne 0) {
+      throw "npm ci failed with exit code $LASTEXITCODE"
+    }
+  }
+
   if (-not $SkipBuild) {
     Write-Host "[dist-branch] Running production build..."
     npm run build
@@ -62,10 +83,13 @@ try {
 
   Push-Location $worktreePath
   try {
-    Write-Host "[dist-branch] Switching to orphan branch '$BranchName'..."
-    Invoke-Git -Args @("switch", "--orphan", $BranchName)
+    Write-Host "[dist-branch] Switching to temporary orphan branch '$sessionBranch'..."
+    Invoke-Git -Args @("switch", "--orphan", $sessionBranch)
 
-    Invoke-Git -Args @("rm", "-rf", "--cached", ".") -AllowFailure
+    $trackedFiles = & git ls-files | Out-String
+    if (-not [string]::IsNullOrWhiteSpace($trackedFiles)) {
+      Invoke-Git -Args @("rm", "-rf", "--cached", ".")
+    }
     Invoke-Git -Args @("clean", "-fdx")
 
     Copy-Item -Path (Join-Path $snapshotRoot "*") -Destination $worktreePath -Recurse -Force
@@ -87,7 +111,7 @@ try {
 
     if ($Push) {
       Write-Host "[dist-branch] Pushing to $RemoteName/$BranchName..."
-      Invoke-Git -Args @("push", "--force", $RemoteName, "$BranchName`:$BranchName")
+      Invoke-Git -Args @("push", "--force", $RemoteName, "HEAD`:$BranchName")
     }
     else {
       Write-Host "[dist-branch] Push skipped."

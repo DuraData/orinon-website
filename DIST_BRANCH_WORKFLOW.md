@@ -14,6 +14,23 @@ Default behavior:
 - Commits only root deploy artifacts (`index.html`, `assets/`, `.htaccess`)
 - Force-pushes to `origin/dist-only`
 
+## Main branch publish command
+
+```powershell
+npm run dist:main
+```
+
+Behavior:
+- Requires current branch to be `main` before publishing (fails fast otherwise)
+- Auto-runs `npm ci` when local TypeScript build tooling is missing
+- Runs build, then force-pushes dist-only content to `origin/dist-only`
+
+For dry runs without pushing:
+
+```powershell
+npm run dist:main:local
+```
+
 ## Optional usage
 
 ```powershell
